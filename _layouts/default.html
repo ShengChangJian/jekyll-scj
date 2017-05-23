@@ -1,0 +1,38 @@
+---
+layout: compress
+---
+<!DOCTYPE html>
+<html>
+  {% include head.html %}
+  <body onload="window.prettyPrint && prettyPrint();">
+    
+    {% include sidebar.html %}
+
+    <main id="main">
+      {{ content }}
+
+      <div class="footer">
+        <div class="container">
+          <p class="footer-entry">All content is licensed under <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA</a></p>
+          <p class="footer-entry">Buit with <a href="http://jekyllrb.com/" target="_blank">Jekyll</a> and <a href="http://ShengChangJian.github.io/" target="_blank">ShengChangJian's Blog技术博客</a> • Hosted on <a href="https://pages.github.com/" target="_blank">Github</a></p>
+        </div>
+      </div>
+    </main>
+
+    <button id="menu">
+      <span id="menu-icons"></span>
+    </button>
+ {% include scripts.html %}
+ <script src="{{ "/assets/js/myself.js" | prepend: site.baseurl }}"></script>  
+<script type="text/javascript">
+var ul = document.getElementById("sidebar-tags");
+var childs = ul.childNodes;
+var height = 0;
+for(var i = 0 ; i < childs.length; i ++)
+{
+   if(childs[i].tagName == "LI") height+=childs[i].offsetHeight;
+}
+if(height>100) ul.style.overflowY="scroll"
+</script>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+---
+layout: compress
+---
+<!DOCTYPE html>
+<html>
+  {% include head.html %}
+  <body onload="window.prettyPrint && prettyPrint();">
+    
+    {% include sidebar.html %}
+
+    <main id="main">
+      {{ content }}
+
+    </main>
+
+    <button id="menu">
+      <span id="menu-icons"></span>
+    </button>
+ {% include scripts.html %}
+
+ <script src="{{ "/assets/js/shuoshuo.js" | prepend: site.baseurl }}"></script>  
+
+  </body>
+</html>

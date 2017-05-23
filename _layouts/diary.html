@@ -1,0 +1,107 @@
+---
+layout: diary_default
+---
+
+ <style> 
+
+#ds-thread #ds-reset .ds-comment-body p {color: blue;font-size: 18px;} 
+#ds-thread #ds-reset .ds-powered-by{display:none;}
+.ds-sync{display:none !important;}
+
+* {
+    SCROLLBAR-FACE-COLOR: #6D7669; 
+SCROLLBAR-HIGHLIGHT-COLOR: #6D7669; 
+SCROLLBAR-SHADOW-COLOR: #363946; 
+SCROLLBAR-3DLIGHT-COLOR: #B9C2B3; 
+SCROLLBAR-ARROW-COLOR: #363946; 
+SCROLLBAR-TRACK-COLOR: #122e29; 
+SCROLLBAR-DARKSHADOW-COLOR: #000000; }
+* ::-webkit-scrollbar-track { display: none; }
+* ::-webkit-scrollbar-thumb { background: #B85615; border-radius:4px; }
+* ::-webkit-scrollbar { width: 10px; }
+
+h1{font-size:30px;}
+
+</style> 
+
+<!--回到顶部或目录处设置div-->
+<div id="top"></div>
+<input id="foldBut" type="button" title="清爽阅读" onclick="foldButton();" value="<->" />
+    
+
+<article class="post container">
+ 
+ 
+  <div class="post-meta">
+    <span class="post-meta-span date">{{ page.date | date:"%Y %B %d" }}</span>
+    {% if page.tags.size > 0 %}
+    <span class="post-meta-span tag">{{ page.tags | join: ', ' }}</span>
+    {% endif %}
+  </div>
+  
+  <h1 class="post-title" align="center" >{{ page.title }}</h1>
+
+<!-- 目录 -->
+<div id="context_table"></div>
+<!-- 目录结束 -->
+<div id="tocTree">
+ <blockquote> 本说说平台按月份划分成单独的文档放在本博客的Thoughts栏目，以年月为名归档，可以着重显示和代码高亮等，
+   配合目录快速到达，提供搜索、评论功能。逐条说说按照时间先后顺序安排。这样便于思想的连续，也易于思想文档的整理</blockquote>
+  {{ content }}
+</div> 
+ 
+<!--直达评论处设置div-->
+<div id="toCom"></div>    
+</article>
+
+  
+<div class="post-share">
+  <div class="container">
+
+<!-- 多说评论框 start -->
+   <div id="shuoshuo" style="display:none;">
+	<div class="ds-thread"  data-thread-key={{ page.id }}_replaceindex data-title={{ page.title }} data-url=http://shengchangjian.github.io//{{ page.url }} ></div>
+    </div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"socojo"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+
+  </div>
+
+</div>
+
+{% if site.disqus_shortname %}
+<div class="comment container">
+  <div id="disqus_thread">
+    <a href=""></a>
+  </div>
+</div>
+{% endif %}
+<DIV id="display_top" style="position:fixed;bottom:5%;left:0px;z-index:9999;"><A href="{{page.url}}#top" title="回到目录处"><IMG src="{{ "/assets/img/toTop.jpg" | prepend: site.baseurl }}"></A></DIV>
+<div id="bottomNav">{{ page.title }}</div> 
+ <!--打开页面之后自动刷新一次，为了克服"多说"插件必须要刷新才出现的弊端-->
+<SCRIPT   LANGUAGE="JavaScript">       
+function   fresh()  
+{ 
+
+  if(location.href.indexOf("?reload=true")<0) 
+   {
+    location.href+="?reload=true";
+   }  
+}  
+
+  setTimeout("fresh()",200);
+
+</SCRIPT>
+ 
+

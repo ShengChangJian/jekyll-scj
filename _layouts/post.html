@@ -1,0 +1,142 @@
+---
+layout: default
+---
+
+<!--页面顶部显示文章标题且不动的横条-->
+ <style> 
+
+#ds-thread #ds-reset .ds-comment-body p {color: white} 
+#ds-thread #ds-reset .ds-powered-by{display:none;}
+#ds-thread { overflow: scroll; overflow-y: hidden;overflow-x: hidden;height: 95%;}
+.ds-sync{display:none !important;}
+#ds_close{display: none;}
+
+* {
+    SCROLLBAR-FACE-COLOR: #6D7669; 
+SCROLLBAR-HIGHLIGHT-COLOR: #6D7669; 
+SCROLLBAR-SHADOW-COLOR: #363946; 
+SCROLLBAR-3DLIGHT-COLOR: #B9C2B3; 
+SCROLLBAR-ARROW-COLOR: #363946; 
+SCROLLBAR-TRACK-COLOR: #122e29; 
+SCROLLBAR-DARKSHADOW-COLOR: #000000; }
+* ::-webkit-scrollbar-track { display: none; }
+* ::-webkit-scrollbar-thumb { background: #B85615; border-radius:4px; }
+* ::-webkit-scrollbar { width: 10px; }
+
+#attention{
+background-color: #A52A2A;
+border-top:10px dashed #A0522D;
+border-right:10px dashed #A0522D; 
+border-left: 20px solid #6D2C1B;
+border-bottom:10px dashed #A0522D;
+margin: 0 0 5em 2em; 
+padding: .5em 1em;
+}
+
+#closeID {font-size: 20px;}
+
+</style> 
+<div id="bottomNav">{{ page.title }}</div> 
+<!--回到顶部或目录处设置div-->
+<div id="top"></div>
+<input id="foldBut" type="button" title="清爽阅读" onclick="foldButton();" value="<->" />
+<article class="post container">
+ 
+ 
+  <div class="post-meta">
+    <span class="post-meta-span date">{{ page.date | date:"%Y %B %d" }}</span>
+    {% if page.tags.size > 0 %}
+    <span class="post-meta-span tag">{{ page.tags | join: ', ' }}</span>
+    {% endif %}
+  </div>
+  
+  <h1 class="post-title" align="center" >{{ page.title }}</h1>
+
+<!-- 目录 -->
+
+<div id="context_table" ></div>
+
+<!-- 目录结束 -->
+
+<div id="tocTree">
+  {{ content }}
+</div> 
+ <br/>
+ <div id="attention" >
+   【注意】本文属于作者原创，欢迎转载！转载时请注明以下内容: <br/>
+
+   &#160; &#160; &#160; &#160;（转载自）ShengChangJian's Blog编程技术文章地址:<br/>
+   <a id="display_attention" href="{{page.url | prepend: site.baseurl | prepend: site.url }}" target="_blank" title="文章标题 {{page.title}}"><p style="text-align: center;color:blue;" >{{page.url | prepend: site.baseurl | prepend: site.url }}</p></a>
+ <a id="display_attention_1" href="{{site.baseurl | prepend: site.url}}" target="_blank" title="欢迎进入ShengChangJian‘s Blog技术博客"><p style="text-align: right;">主页地址：http://shengchangjian.github.io/</p></a>
+ </div>
+<!--直达评论处设置div-->
+
+</article>
+
+  
+<div class="post-share">
+  <div class="container">
+
+<!-- 多说评论框 start -->
+<div id="ds_comment" > 
+  <div id = "ds_close" style="background-color:#122e29;float:right;text-align: center;height: 34px !important;"><a href="#" id="closeID" onclick="Lock_CheckForm(this);">[关闭评论]</a>     </div>
+	<div class="ds-thread" data-thread-key={{ page.id }} data-title={{ page.title }} data-url=http://shengchangjian.github.io//{{ page.url }} ></div>
+</div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"socojo"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+
+<!-- 多说公共JS代码 end -->
+
+<div class="ds-share"  data-thread-key={{ page.id }} data-title={{ page.title }} data-images="" data-content="转载自http://shengchangjian.github.io/" data-url=http://shengchangjian.github.io//{{ page.url }}>
+    <div class="ds-share-aside-left" >
+      <div class="ds-share-aside-inner" >
+      </div>
+      <div class="ds-share-aside-toggle" style="height: 20px !important;text-align: center; margin: 0.2em !important;padding-top: 0.5em !important;" >分享</div>
+    </div>
+</div>
+
+    <a href="https://twitter.com/share?url={{ page.url | prepend: site.baseurl | prepend: site.url }}&text={{ page.title }}" target="_blank" class="post-share-icon twitter"></a>
+    <a href="https://www.evernote.com/clip.action?url={{ page.url | prepend: site.baseurl | prepend: site.url }}&title={{ page.title }}" target="_blank" class="post-share-icon evernote"></a>
+    <a href="http://service.weibo.com/share/share.php?url={{ page.url | prepend: site.baseurl | prepend: site.url }}&title={{ page.title }}" target="_blank" class="post-share-icon weibo"></a>
+  </div>
+
+</div>
+
+{% if site.disqus_shortname %}
+<div class="comment container">
+  <div id="disqus_thread">
+    <a href=""></a>
+  </div>
+</div>
+{% endif %}
+<DIV id="display_top" style="position:fixed;bottom:10%;left:0px;z-index:9999;"><A href="{{page.url}}?reload=true#top" title="回到目录处"><IMG src="{{ "/assets/img/toTop.jpg" | prepend: site.baseurl }}"></A></DIV>
+<DIV id="display_comment"  style="position:fixed;bottom:5%;left:0px;z-index:9999;"><A href="#" onclick="ds_comment();" title="评论本文"><IMG src="{{ "/assets/img/comment.jpg" | prepend: site.baseurl }}"></A></DIV>
+
+  <!--打开页面之后自动刷新一次，为了克服"多说"插件必须要刷新才出现的弊端-->
+
+
+<SCRIPT   LANGUAGE="JavaScript">       
+function   fresh()  
+{ 
+
+  if(location.href.indexOf("?reload=true")<0) 
+   {
+    location.href+="?reload=true";
+   }  
+}  
+
+  setTimeout("fresh()",50);
+
+</SCRIPT>
+

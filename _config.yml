@@ -1,0 +1,49 @@
+# Site settings
+title: ShengChangJian's github-Blog 
+email: 414834682@qq.com
+description: "编程技术博客文章"# this means to ignore newlines until "baseurl:"
+  #Write an awesome description for your new site here. You can edit this
+  #line in _config.yml. It will appear in your document head meta (for
+  #Google search results) and in your feed.xml site description.
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "https://shengchangjian.github.io" # the base hostname & protocol for your site
+
+
+# Sidebar filter
+# Choose 'tag' or 'category' as filter in sidebar.
+filter: 'tag'
+
+
+# Social account
+# twitter:  username
+# weibo:    ID
+github:  ShengChangJian 
+# codepen:  username
+# dribbble: username
+
+
+# Comment
+#disqus_shortname: discussion_shortname
+
+
+# Google Analytics
+# google_analytics: tracking_ID
+
+
+# Build settings
+#markdown: kramdown
+#kramdown:
+#  input: GFM
+#highlighter: pygments
+#safe: true //sitemap需要屏蔽该项
+
+markdown: kramdown 
+
+#safe: true
+sass:
+  style: compressed
+gems:
+  - jekyll-sitemap
+
+
+permalink: /:year/:month/:title.html
