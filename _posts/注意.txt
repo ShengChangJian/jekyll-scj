@@ -1,5 +1,5 @@
-������txt��markdown�ļ������������ң�ʹ��jekyll�޷�����������Ӷ����ļ�����ʹ��postģ�壩��
-�����޷���gvim�޸�������Ӧ����gvim�½�markdown�ļ�������Ϊutf-8��
+不能用txt打开markdown文件，否则编码错乱（使得jekyll无法将其解析，从而该文件不能使用post模板），
+甚至无法用vim修复，所以应该用vim新建markdown文件（保存为utf-8）,如果在windows下使用，需要将文件格式设置成dos而不是unix，否则，用其他软件打开时会出现混乱。
 
-������ϰ�ߡ�����������&#160; &#160; &#160; &#160;
-��ע�⡿������ʽ�������޸��ļ���_sass��css�е��ļ���Ҳ�����Լ��������ݣ�����css����
+【中文习惯】首行缩进用&#160; &#160; &#160; &#160;
+【注意】各种样式都可以修改文件夹_sass和css中的文件（也可以自己添加内容，遵守css规则）
