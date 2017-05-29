@@ -1,0 +1,4 @@
+在.vimrc（sudo打开）中添加Bundle 'chunpu/vim-markdown'，然后BundleInstall安装。之后再到.vim/bundle/vim-markdown/syntax中修改markdown.md，注释掉有`(1左边的那个键)的第一行（vim中在normal模式下使用/`进行查询）。
+
+这里为什么不使用更多功能或星星更多的vim-markdwon呢？因为很不习惯，而且比较慢，况且页不需要什么补全以及不需要在线预览功能（即使需要也可以单独安装在线预览插件）
+
